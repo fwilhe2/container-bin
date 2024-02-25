@@ -3,4 +3,4 @@ set -euo pipefail
 shopt -s nullglob
 set -x
 
-podman run --rm --interactive --tty docker.io/library/maven:3-sapmachine jshell "$@"
+podman run --rm --interactive --tty --security-opt label=disable --mount=type=bind,source=`pwd`,target=/usr/src --workdir=/usr/src docker.io/library/maven:3-sapmachine jshell "$@"
