@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+shopt -s nullglob
+set -x
+
+podman run --rm --interactive --tty docker.io/library/node:21 npm "$@"
